@@ -1,4 +1,4 @@
-// On GitHub, when a file is a 'tree', append a '/' after it
+// On GitHub, when a file is a 'tree', append a '/' after its path
 // such that it can be unambiguously identified as a folder.
 
 [
