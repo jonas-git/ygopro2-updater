@@ -77,13 +77,13 @@ void path_split(struct path_segments *seg, char *path)
             }
         }
         
-        // This is the same as 'basename(path)'.
-        char *base = last_slash ? last_slash + 1 : path;
-        
         // Make sure if this is really
         // not a directory by checking the base name.
-        if (!is_dir)
+        if (!is_dir) {
+            // This is the same as 'basename(path)'.
+            char *base = last_slash ? last_slash + 1 : path;
             is_dir = !path_split_name(seg, base);
+        }
 
         if (is_dir)
             seg->dir = path;
