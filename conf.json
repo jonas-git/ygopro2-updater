@@ -1,0 +1,55 @@
+// On GitHub, when a file is a 'tree', append a '/' after it
+// such that it can be unambiguously identified as a folder.
+
+[
+	{
+		"url": "https://github.com/shadowfox87/YGOSeries10CardPics",
+		"files": [
+			{
+				"source_file": "/*.png",
+				"destination_folder": "./picture/card",
+				"update": true
+			}
+		]
+	},
+	{
+		"url": "https://github.com/shadowfox87/field544x544png",
+		"files": [
+			{
+				"source_file": "/*.png",
+				"destination_folder": "./picture/field",
+				"update": true
+			}
+		]
+	},
+	{
+		"url": "https://github.com/shadowfox87/YGOCloseupsPng300x300",
+		"files": [
+			{
+				"source_file": "/*.png",
+				"destination_folder": "./picture/closeup",
+				"update": true
+			}
+		]
+	},
+	{
+		"url": "https://github.com/Ygoproco/Live2017MR4",
+		"files": [
+			{
+				"source_file": "/script/*.lua",
+				"destination_folder": "./script",
+				"update": false
+			},
+			{
+				"source_file": "/*.cdb",
+				"destination_folder": "./cdb",
+				"update": false
+			},
+			{
+				"source_file": "/*.conf",
+				"destination_folder": "./conf",
+				"update": false
+			}
+		]
+	}
+]
