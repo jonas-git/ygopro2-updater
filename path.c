@@ -48,10 +48,11 @@ bool path_split_name(struct path_segments *seg, char *name)
 
 void path_split(struct path_segments *seg, char *path)
 {
+    seg->name = PATH_DEFAULT_NAME;
+    seg->ext = PATH_DEFAULT_EXT;
+
     if (!path || !*path) {
         seg->dir = PATH_DEFAULT_DIR;
-        seg->name = PATH_DEFAULT_NAME;
-        seg->ext = PATH_DEFAULT_EXT;
         return;
     }
 
