@@ -10,7 +10,7 @@ EXE = updater
 all: $(EXE)
 
 $(EXE): $(OBJ) 
-	$(CC) $(LDFLAGS) $(OBJ) -o $@
+	$(CC) $(OBJ) -o $@ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
