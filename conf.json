@@ -1,6 +1,3 @@
-// On GitHub, when a file is a 'tree', append a '/' after its path
-// such that it can be unambiguously identified as a folder.
-
 [
 	{
 		"url": "https://github.com/shadowfox87/YGOSeries10CardPics",
