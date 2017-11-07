@@ -21,7 +21,7 @@ Update of previous downloads (when there is a log file):
   - update updatelog.json with the new sha and the added, overwritten and/or removed files
 
 step A - download:
-- download all matching files in the tree into their corresponding folders
+- download all matching files in the tree into their corresponding folders from [/:owner/:repo/:sha/:path]
   -> matching files are files that match the pattern in updateconfig.json (field 'source')
   -> corresponding folders are the target download folders named in updateconfig.json (field 'destination')
 
