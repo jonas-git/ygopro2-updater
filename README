@@ -1,0 +1,56 @@
+Terminology and syntax:
+  - "api" stands for the official GitHub API (api.github.com).
+  - "raw" stands for the server that delivers raw GitHub repository content (raw.githubusercontent.com).
+  - Variables are either prefixed with a colon (':') (in URLs) or surrounded with triangle brackets ('<>').
+  - URL paths are sorrounded with braces ('{}') for the "api" and with brackets ('[]') for "raw".
+
+HTTP headers required (*) (or recommended) for some requests (which is specified in the parantheses):
+   (  api  ) "Accept: application/vnd.github.v3+json"
+ * (api/raw) "Authorization: Token <token>"
+
+
+Initial download (when no log file exists yet):
+  - get the tree of the master branch with {/repos/:owner/:repo/git/trees/master?recursive=1}
+  - visit "step A - download"
+  - create the file updatelog.json and add the sha and all file names
+
+Update of previous downloads (when there is a log file):
+  - get the tree with the updated files by comparing the sha of the lastly downloaded branch
+    to the most recent one (master): {/repos/:owner/:repo/compare/:sha...master}
+  - visit "step A - download"
+  - update updatelog.json with the new sha and the added, overwritten and/or removed files
+
+step A - download:
+- download all matching files in the tree into their corresponding folders
+  -> matching files are files that match the pattern in updateconfig.json (field 'source')
+  -> corresponding folders are the target download folders named in updateconfig.json (field 'destination')
+
+
+
+updateconfig.json: {
+	"repositories:" [
+		{
+			"owner": <:owner>,
+			"name": <:repo>,
+			"files": [
+				{
+					"source": <wildcarded-path>,
+					"destination": <folder-path>,
+					"update": <boolean> // either update or always overwrite files
+				},
+				// ...
+			]
+		},
+		// ...
+	]
+}
+
+updatelog.json: {
+	"sha": 80a42df2f5174266b04a3d49f19694b3591e4057, // sha of the branch that was updated the last time
+	"files": [ /* list of all file names that were downloaded... */ ]
+}
+
+
+
+Possibly considerable options:
+  - keep and ignore locally modified files
