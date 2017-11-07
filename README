@@ -46,7 +46,8 @@ updateconfig.json: {
 }
 
 updatelog.json: {
-	"sha": 80a42df2f5174266b04a3d49f19694b3591e4057, // sha of the branch that was updated the last time
+	// sha of the branch that was updated the last time:
+	"sha": 80a42df2f5174266b04a3d49f19694b3591e4057,
 	"files": [ /* list of all file names that were downloaded... */ ]
 }
 
