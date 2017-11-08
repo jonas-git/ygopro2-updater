@@ -29,7 +29,6 @@ step A - download:
   -> corresponding folders are the target download folders named in updateconfig.json (field 'destination')
 
 
-
 updateconfig.json: {
 	"repositories:" [
 		{
