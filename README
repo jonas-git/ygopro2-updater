@@ -4,21 +4,24 @@ Terminology and syntax:
   - Variables are either prefixed with a colon (':') (in URLs) or surrounded with triangle brackets ('<>').
   - URL paths are sorrounded with braces ('{}') for the "api" and with brackets ('[]') for "raw".
 
-HTTP headers required (*) (or recommended) for some requests (which is specified in the parantheses):
+HTTP headers required (*) (or recommended) for some requests (which are specified in the parantheses):
    (  api  ) "Accept: application/vnd.github.v3+json"
  * (api/raw) "Authorization: Token <token>"
 
 
 Initial download (when no log file exists yet):
   - get the tree of the master branch with {/repos/:owner/:repo/git/trees/master?recursive=1}
-  - visit "step A - download"
-  - create the file updatelog.json and add the sha and all file names
+  - visit step A
+  - create the file updatelog.json and add the sha and all file paths
 
 Update of previous downloads (when there is a log file):
   - get the tree with the updated files by comparing the sha of the lastly downloaded branch
-    to the most recent one (master): {/repos/:owner/:repo/compare/:sha...master}
-  - visit "step A - download"
-  - update updatelog.json with the new sha and the added, overwritten and/or removed files
+        to the most recent one (master): {/repos/:owner/:repo/compare/:sha...master}
+  - remove deleted files from the local file system and the list in updatelog.json
+  - redownload files from the list that are missing locally [/:owner/:repo/:sha/:path]
+  - download the rest of the files that were added or modified (with step A)
+  - set the sha in updatelog.json to the sha of the last commit listed in the api response
+  - add the files that were newly added to the repository to the list in updatelog.json
 
 step A - download:
 - download all matching files in the tree into their corresponding folders from [/:owner/:repo/:sha/:path]
