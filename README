@@ -54,6 +54,6 @@ updatelog.json: {
 }
 
 
-
-Possibly considerable options:
+Considerable options:
+  - let the program download the newest release of itself
   - keep and ignore locally modified files
