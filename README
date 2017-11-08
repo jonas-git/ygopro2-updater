@@ -32,8 +32,8 @@ step A - download:
 updateconfig.json: {
 	"repositories:" [
 		{
-			"owner": <:owner>,
-			"name": <:repo>,
+			"owner": <owner>,
+			"name": <repo>,
 			"files": [
 				{
 					"source": <wildcarded-path>,
